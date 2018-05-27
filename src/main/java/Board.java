@@ -118,7 +118,7 @@ public class Board extends JPanel implements ActionListener {
             this.initCacti();
         }
 
-        if (this.score % 33 == 0) {
+        if (this.time % 400 == 0 && score > 20) {
             this.cacti.add(new Cactus(600, 148));
         }
 
@@ -132,6 +132,7 @@ public class Board extends JPanel implements ActionListener {
             }
         }
     }
+
 
     private void start() {
         boolean key = KeyManager.getKey();
