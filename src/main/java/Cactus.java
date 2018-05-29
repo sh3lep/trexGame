@@ -1,7 +1,5 @@
 public class Cactus extends Sprite{
 
-    double speed = 1.5;
-
     public Cactus(double x, double y){
         super(x, y);
         this.initCactus();
@@ -12,7 +10,8 @@ public class Cactus extends Sprite{
         this.getImageDimensions();
     }
 
-    public void move() {
+    public void move(double speed) {
+        
         this.x -= speed;
     }
 }

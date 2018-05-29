@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class Board extends JPanel implements ActionListener {
 
@@ -11,11 +12,15 @@ public class Board extends JPanel implements ActionListener {
     private TRex tRex;
     private ArrayList<Cactus> cacti;
     private static boolean ingame;
-    private boolean inGameOver;
+    private static boolean inGameOver;
     private boolean beforeGame;
     private boolean playedBefore;
     private int time;
     private int score;
+    private double speed = 1.5;
+
+    private int[] rnd = {300, 600};
+
 
 
     public Board() {
@@ -114,11 +119,17 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void updateCacti() {
+        Random rand = new Random();
+        int value = rand.nextInt(2);
+        int curfr = rnd[value];
+
         if (this.cacti.isEmpty()) {
             this.initCacti();
         }
 
-        if (this.time % 400 == 0 && score > 20) {
+
+
+        if (this.time % curfr == 0 && score > 20) {
             this.cacti.add(new Cactus(600, 148));
         }
 
@@ -128,7 +139,7 @@ public class Board extends JPanel implements ActionListener {
             if (cactus.getX() < 0 - cactus.getBounds().getWidth()) {
                 this.cacti.remove(cactus);
             } else if (cactus.isVisible() && this.time % 2 == 0) {
-                cactus.move();
+                cactus.move(speed);
             }
         }
     }
@@ -148,11 +159,13 @@ public class Board extends JPanel implements ActionListener {
             this.start();
         } else {
             if (ingame && !inGameOver) {
+
                 this.updateCacti();
                 this.updateTRex();
                 time++;
                 if (time % 20 == 0) {
                     this.score++;
+                    speed += 0.00006;
                 }
                 this.checkCollision();
 
@@ -172,6 +185,7 @@ public class Board extends JPanel implements ActionListener {
         if (key) {
             this.timer.stop();
             score = 0;
+            speed = 1.5;
             this.initBoard();
         }
     }
