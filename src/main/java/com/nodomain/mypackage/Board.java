@@ -186,6 +186,7 @@ public class Board extends JPanel implements ActionListener {
         timer.stop();
         score = 0;
         cactusSpeed = 1.5;
+
         initializeBoard();
     }
 }
