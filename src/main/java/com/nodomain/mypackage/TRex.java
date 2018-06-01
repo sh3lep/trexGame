@@ -1,12 +1,12 @@
 package com.nodomain.mypackage;
 
-public class TRex extends Sprite {
+class TRex extends Sprite {
 
 
     private double velocityY = 0.0;
     private boolean onGround = true;
 
-    public TRex(int x, int y){
+    TRex(int x, int y){
         super(x, y);
         initTRex();
     }
@@ -24,7 +24,7 @@ public class TRex extends Sprite {
         }
     }
 
-    public void updatePosition() {
+    void updatePosition() {
         double gravity = 0.025;
         velocityY += gravity;
         y += velocityY;
@@ -38,7 +38,7 @@ public class TRex extends Sprite {
         }
     }
 
-    public void getInput() {
+    void getInput() {
         boolean key = KeyManager.getKey();
         if (key) {
             startJump();

@@ -1,8 +1,8 @@
 package com.nodomain.mypackage;
 
-public class Cactus extends Sprite{
+class Cactus extends Sprite{
 
-    public Cactus(double x, double y){
+    Cactus(double x, double y){
         super(x, y);
         this.initCactus();
     }
@@ -12,7 +12,7 @@ public class Cactus extends Sprite{
         this.getImageDimensions();
     }
 
-    public void move(double speed) {
+    void move(double speed) {
         this.x -= speed;
     }
 }
