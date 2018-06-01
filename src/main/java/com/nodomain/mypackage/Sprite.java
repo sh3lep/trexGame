@@ -1,9 +1,11 @@
+package com.nodomain.mypackage;
+
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
-public class Sprite {
+class Sprite {
 
     public double x;
     public double y;
@@ -24,7 +26,7 @@ public class Sprite {
     }
 
     public void loadImage(String imageName) {
-        URL url = getClass().getResource(imageName);
+        URL url = getClass().getResource("/"+imageName);
         ImageIcon ii = new ImageIcon(url);
         this.image = ii.getImage();
     }

@@ -1,3 +1,5 @@
+package com.nodomain.mypackage;
+
 import javax.swing.JFrame;
 import java.awt.EventQueue;
 
@@ -8,12 +10,12 @@ public class Game extends JFrame{
     }
 
     private void initUI() {
-        this.add(new Board());
-        this.setResizable(false);
-        this.pack();
-        this.setTitle("T-Rex");
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(new Board());
+        setResizable(false);
+        pack();
+        setTitle("T-Rex");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static void main(String[] args) {

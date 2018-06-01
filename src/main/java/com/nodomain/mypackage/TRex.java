@@ -1,42 +1,46 @@
+package com.nodomain.mypackage;
+
 public class TRex extends Sprite {
 
 
-    double velocityY = 0.0;
-    double gravity = 0.025;
-    boolean onGround = true;
+    private double velocityY = 0.0;
+    private boolean onGround = true;
 
     public TRex(int x, int y){
         super(x, y);
-        this.initTRex();
+        initTRex();
     }
 
     private void initTRex() {
-            this.loadImage("TRex.gif");
+        this.loadImage("TRex.gif");
         this.getImageDimensions();
     }
 
     private void startJump() {
         if (onGround) {
+            this.loadImage("TRexStanding.png");
             velocityY = -2.5;
             onGround = false;
         }
     }
 
-    public void update() {
+    public void updatePosition() {
+        double gravity = 0.025;
         velocityY += gravity;
-        this.y += velocityY;
+        y += velocityY;
 
-        if (this.y > 150.0)
+        if (y > 150.0)
         {
-            this.y = 150.0;
+            y = 150.0;
             velocityY = 0.0;
             onGround = true;
+            this.loadImage("TRex.gif");
         }
     }
 
     public void getInput() {
         boolean key = KeyManager.getKey();
-        if (key && Board.getingame()) {
+        if (key) {
             startJump();
         }
     }

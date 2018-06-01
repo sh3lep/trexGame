@@ -1,3 +1,5 @@
+package com.nodomain.mypackage;
+
 public class Cactus extends Sprite{
 
     public Cactus(double x, double y){
@@ -11,7 +13,6 @@ public class Cactus extends Sprite{
     }
 
     public void move(double speed) {
-        
         this.x -= speed;
     }
 }

@@ -20,7 +20,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Game</mainClass>
+                            <mainClass>com.nodomain.mypackage.Game</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
